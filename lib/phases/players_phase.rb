@@ -17,8 +17,7 @@ module Phases
 
       Blackjack.logger.info("Dealer upcard is #{game.dealer.upcard.for_humans}")
 
-      game.boxes.each_with_index do |player, i|
-        i += 1
+      game.boxes.each do |player|
         Blackjack.logger.info { "Beginning turn for #{player.name}" }
 
         22.times do |turn_guard|

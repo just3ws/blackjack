@@ -54,9 +54,7 @@ module Phases
 
       Blackjack.logger.debug('-' * 80)
 
-      game.boxes.each_with_index do |player, i|
-        i += 1
-
+      game.boxes.each do |player|
         final = if player.won?
                   'won'
                 elsif player.lost?
