@@ -14,10 +14,9 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry'
   gem 'byebug'
+  gem 'pry'
   gem 'pry-byebug'
-
 end
 
 group :test do
