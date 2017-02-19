@@ -64,6 +64,7 @@ module Phases
                 else
                   raise 'Unknown final play state'
                 end
+
         Blackjack.logger.debug("#{player.name} #{final} by #{player.play_state.to_s.sub(/_/, ' ')} with #{player.hand.description}")
       end
 
