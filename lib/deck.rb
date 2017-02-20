@@ -1,4 +1,3 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 class Deck
@@ -7,13 +6,6 @@ class Deck
     diamonds
     spades
     clubs
-  ).freeze
-
-  SUIT_FONTS = %i(
-    hearts: ♥,
-    diamonds: ♦,
-    spades: ♠,
-    clubs: ♣
   ).freeze
 
   NAME_RANKS = {

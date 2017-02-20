@@ -3,11 +3,16 @@
 class Card
   attr_accessor :suit, :name, :rank
 
+  attr_reader :type
+  attr_reader :card_character, :suit_character
+  attr_reader :token
+
   def initialize(suit: nil, name: nil, rank: nil, downcard: true)
     @suit = suit
     @name = name
     @rank = rank
     @downcard = downcard
+    @token = tokenize
   end
 
   def upcard!
@@ -15,14 +20,17 @@ class Card
 
     self
   end
+  alias up! upcard!
 
   def upcard?
     !@downcard
   end
+  alias up? upcard?
 
   def downcard?
     @downcard
   end
+  alias down? downcard?
 
   def as_token
     return 'AC' if name == :ace
@@ -44,5 +52,10 @@ class Card
         rank: rank
       }
     }
+  end
+
+  def tokenize
+    return 'AC' if name == :ace
+    name.to_s.rjust(2, '0')
   end
 end
