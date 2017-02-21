@@ -22,7 +22,7 @@ module Cards
     end
 
     def glyph
-      Cards::Glyphs::CARDS[key]
+      Cards::Glyphs::CARDS[{ rank: rank.key, suit: suit.key }]
     end
 
     def upcard!
