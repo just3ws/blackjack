@@ -13,17 +13,23 @@ class Card
   attr_accessor :suit, :rank
 
   def initialize(rank:, suit:)
-    @rank = Cards::Rank.new(rank)
-    @suit = Cards::Suit.new(suit)
+    @rank = Cards::Rank.new(key: rank)
+    @suit = Cards::Suit.new(key: suit)
   end
 
-  def for_humans
-    "#{human_name} of #{suit_human_name}"
+  def name
+    "#{rank.name} of #{suit.name}"
+  end
+
+  def glyph
+    Cards::Glyphs::CARDS[key]
   end
 
   def as_graph
     {
       card: {
+        name: name,
+        glyph: glyph,
         downcard?: downcard?,
         upcard?: upcard?
       }.merge(rank.as_graph).merge(suit.as_graph)

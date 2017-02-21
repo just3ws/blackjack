@@ -9,18 +9,18 @@ module Cards
                 hearts: 'Hearts',
                 diamonds: 'Diamonds' }.freeze
 
-    attr_reader :suit
+    attr_reader :key
 
-    def initialize(suit:)
-      @suit = suit.downcase.to_sym
+    def initialize(key:)
+      @key = key.downcase.to_sym
     end
 
-    def suit
-      NAMES[suit]
+    def name
+      NAMES[key]
     end
 
-    def symbol
-      Cards::Glyphs::SUITS[suit]
+    def glyph
+      Cards::Glyphs::SUITS[key]
     end
 
     def as_graph

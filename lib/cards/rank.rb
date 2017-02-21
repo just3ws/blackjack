@@ -35,7 +35,7 @@ module Cards
     def_delegators :@token, :token
 
     def as_graph
-      { rank: { id: key,
+      { rank: { key: key,
                 name: name }.merge(token.as_graph.dig(:token, :value)) }
     end
   end
