@@ -1,33 +1,33 @@
 # frozen_string_literal: true
 
-require_relative 'noun'
+require_relative 'glyphs/suits'
 
 module Cards
-  SUITS ||= { spades: Noun.new(singular: 'Spade', plural: 'Spades'),
-              clubs: Noun.new(singular: 'Club', plural: 'Clubs'),
-              hearts: Noun.new(singular: 'Heart', plural: 'Hearts'),
-              diamonds: Noun.new(singular: 'Diamond', plural: 'Diamonds') }.freeze
-
   class Suit
-    attr_reader :name
+    NAMES ||= { spades: 'Spades',
+                clubs: 'Clubs',
+                hearts: 'Hearts',
+                diamonds: 'Diamonds' }.freeze
 
-    def initialize(name)
-      @name = name
+    attr_reader :suit
+
+    def initialize(suit:)
+      @suit = suit.downcase.to_sym
     end
 
-    # Heart (count == 1)
-    # Hearts (count == 3)
-    # Hearts (count == 0)
-    def word(with_quantity: 1)
-      Card::SUITS[name].plural if with_quantity > 1 || with_quantity == 0
-      Card::SUITS[name].singular
+    def suit
+      NAMES[suit]
     end
 
-    # 1 Heart (count == 1)
-    # 3 Hearts (count == 3)
-    # 0 Hearts (count == 0)
-    def noun(with_quantity: 1)
-      "#{count} #{noun(count)}"
+    def symbol
+      Cards::Glyphs::SUITS[suit]
+    end
+
+    def as_graph
+      {
+        suit: { name: name,
+                glyph: glyph }
+      }
     end
   end
 end

@@ -1,27 +1,42 @@
 # frozen_string_literal: true
 
-require_relative 'noun'
+require_relative 'token'
+require 'forwardable'
 
 module Cards
-  RANKS ||= { ace: Noun.new(singular: 'Ace', plural: 'Aces'),
-              ten: Noun.new(singular: 'Ten', plural: 'Tens'),
-              jack: Noun.new(singular: 'Jack', plural: 'Jacks'),
-              queen: Noun.new(singular: 'Queen', plural: 'Queens'),
-              king: Noun.new(singular: 'King', plural: 'Kings'),
-              nine: Noun.new(singular: 'Nine', plural: 'Nines'),
-              eight: Noun.new(singular: 'Eight', plural: 'Eights'),
-              seven: Noun.new(singular: 'Seven', plural: 'Sevens'),
-              six: Noun.new(singular: 'Six', plural: 'Sixes'),
-              five: Noun.new(singular: 'Five', plural: 'Fives'),
-              four: Noun.new(singular: 'Four', plural: 'Fours'),
-              three: Noun.new(singular: 'Three', plural: 'Threes'),
-              two: Noun.new(singular: 'Two', plural: 'Twos') }.freeze
-
   module Rank
-    attr_reader :name
+    extend Forwardable
 
-    def initialize(name)
-      @name = name
+    NAMES ||= { ace: 'Ace',
+                two: 'Two',
+                three: 'Three',
+                four: 'Four',
+                five: 'Five',
+                six: 'Six',
+                seven: 'Seven',
+                eight: 'Eight',
+                nine: 'Nine',
+                ten: 'Ten',
+                jack: 'Jack',
+                queen: 'Queen',
+                king: 'King' }.freeze
+
+    attr_reader :key
+
+    def initialize(key:)
+      @key = key.downcase.to_sym
+      @token = Cards::Token.new(key: key)
+    end
+
+    def name
+      NAMES[key]
+    end
+
+    def_delegators :@token, :token
+
+    def as_graph
+      { rank: { id: key,
+                name: name }.merge(token.as_graph.dig(:token, :value)) }
     end
   end
 end

@@ -4,20 +4,17 @@ require 'ostruct'
 
 require_relative 'cards/rank'
 require_relative 'cards/suit'
-require_relative 'cards/tokens'
+require_relative 'cards/glyphs/cards'
 require_relative 'cards/turnable'
 
 class Card
-  prepend Cards::Tokenizable
   prepend Cards::Turnable
 
   attr_accessor :suit, :rank
 
   def initialize(rank:, suit:)
-    @key = key
-
-    @suit = Cards::Suit.new(suit)
     @rank = Cards::Rank.new(rank)
+    @suit = Cards::Suit.new(suit)
   end
 
   def for_humans
@@ -27,13 +24,9 @@ class Card
   def as_graph
     {
       card: {
-        token: as_token,
-        suit: suit,
-        name: name,
         downcard?: downcard?,
-        upcard?: upcard?,
-        rank: rank
-      }
+        upcard?: upcard?
+      }.merge(rank.as_graph).merge(suit.as_graph)
     }
   end
 end
