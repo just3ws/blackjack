@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
+require_relative 'ranks'
+require_relative 'suits'
+require_relative 'card'
+
 module Cards
   module Pack
     def self.open
-      Cards::Suit::SUITS.keys.flat_map do |suit|
-        Cards::Rank::RANKS.keys.map do |rank|
+      SUITS.keys.flat_map do |suit|
+        RANKS.keys.map do |rank|
           Card.new(rank: rank, suit: suit)
         end
       end

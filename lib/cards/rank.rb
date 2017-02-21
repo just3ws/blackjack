@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Cards
-  module Rank
-    attr_reader:key
+  class Rank
+    attr_reader :key
 
     def initialize(key:)
       @key = key.downcase.to_sym
