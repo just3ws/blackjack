@@ -1,44 +1,27 @@
 # frozen_string_literal: true
 
+require 'ostruct'
+
+require_relative 'cards/rank'
+require_relative 'cards/suit'
+require_relative 'cards/tokens'
+require_relative 'cards/turnable'
+
 class Card
-  attr_accessor :suit, :name, :rank
+  prepend Cards::Tokenizable
+  prepend Cards::Turnable
 
-  attr_reader :type
-  attr_reader :card_character, :suit_character
-  attr_reader :token
+  attr_accessor :suit, :rank
 
-  def initialize(suit: nil, name: nil, rank: nil, downcard: true)
-    @suit = suit
-    @name = name
-    @rank = rank
-    @downcard = downcard
-    @token = tokenize
-  end
+  def initialize(rank:, suit:)
+    @key = key
 
-  def upcard!
-    @downcard = false
-
-    self
-  end
-  alias up! upcard!
-
-  def upcard?
-    !@downcard
-  end
-  alias up? upcard?
-
-  def downcard?
-    @downcard
-  end
-  alias down? downcard?
-
-  def as_token
-    return 'AC' if name == :ace
-    rank.to_s.rjust(2, '0')
+    @suit = Cards::Suit.new(suit)
+    @rank = Cards::Rank.new(rank)
   end
 
   def for_humans
-    "#{name.capitalize} of #{suit.capitalize}"
+    "#{human_name} of #{suit_human_name}"
   end
 
   def as_graph
@@ -52,10 +35,5 @@ class Card
         rank: rank
       }
     }
-  end
-
-  def tokenize
-    return 'AC' if name == :ace
-    name.to_s.rjust(2, '0')
   end
 end
