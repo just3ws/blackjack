@@ -17,6 +17,8 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
   gem 'pry-byebug'
+
+  gem 'awesome_print'
 end
 
 group :test do

@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.executables = 'blackjack'
 
   s.add_dependency 'curses', '~> 1.1.3'
+  s.add_dependency 'colorize', '~> 0.8.1'
 
   s.add_development_dependency 'bundler'
   s.add_development_dependency 'rspec'
