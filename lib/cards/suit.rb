@@ -1,13 +1,26 @@
+# encoding: utf-8
 # frozen_string_literal: true
-
-require_relative 'glyphs/suits'
 
 module Cards
   class Suit
-    NAMES ||= { spades: 'Spades',
-                clubs: 'Clubs',
-                hearts: 'Hearts',
-                diamonds: 'Diamonds' }.freeze
+    SUITS ||= {
+      spades: {
+        name: 'Spades',
+        glyph: '♠'
+      },
+      clubs:    {
+        name:  'Clubs',
+        glyph: '♣'
+      },
+      hearts:   {
+        name:  'Hearts',
+        glyph: '♥'
+      },
+      diamonds: {
+        name: 'Diamonds',
+        glyph: '♦'
+      }
+    }.freeze
 
     attr_reader :key
 
@@ -16,17 +29,20 @@ module Cards
     end
 
     def name
-      NAMES[key]
+      NAMES[key][:name]
     end
 
     def glyph
-      Cards::Glyphs::SUITS[key]
+      NAMES[key][:glyph]
     end
 
     def as_graph
       {
-        suit: { name: name,
-                glyph: glyph }
+        suit: {
+          key: key,
+          name: name,
+          glyph: glyph
+        }
       }
     end
   end

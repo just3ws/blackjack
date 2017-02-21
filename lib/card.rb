@@ -5,16 +5,16 @@ require 'ostruct'
 require_relative 'cards/rank'
 require_relative 'cards/suit'
 require_relative 'cards/glyphs/cards'
-require_relative 'cards/turnable'
 
 class Card
   prepend Cards::Turnable
 
   attr_accessor :suit, :rank
 
-  def initialize(rank:, suit:)
+  def initialize(rank:, suit:, downcard: true)
     @rank = Cards::Rank.new(key: rank)
     @suit = Cards::Suit.new(key: suit)
+    @downcard = downcard
   end
 
   def name
@@ -23,6 +23,20 @@ class Card
 
   def glyph
     Cards::Glyphs::CARDS[key]
+  end
+
+  def upcard!
+    @downcard = false
+
+    self
+  end
+
+  def upcard?
+    !@downcard
+  end
+
+  def downcard?
+    @downcard
   end
 
   def as_graph
