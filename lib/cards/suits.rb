@@ -6,19 +6,23 @@ module Cards
   SUITS = {
     spades: {
       name: 'Spades',
-      glyph: '♠'
+      glyph: '♠',
+      color: :black
     },
     clubs:    {
       name:  'Clubs',
-      glyph: '♣'
+      glyph: '♣',
+      color: :black
     },
     hearts:   {
       name:  'Hearts',
-      glyph: '♥'
+      glyph: '♥',
+      color: :red
     },
     diamonds: {
       name: 'Diamonds',
-      glyph: '♦'
+      glyph: '♦',
+      color: :red
     }
   }.freeze
 end
