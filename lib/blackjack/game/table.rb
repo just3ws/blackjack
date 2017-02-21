@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class Table
-  attr_accessor :boxes, :dealer, :shoe
+  attr_accessor :boxes, :dealer, :deck
 
   def initialize(dealer: nil)
     @dealer = dealer
-    @shoe = Shoe.new
+    @deck = Deck.new
     @boxes = []
   end
 
@@ -41,7 +41,7 @@ class Table
         boxes: boxes.map(&:as_graph)
       }
         .merge(dealer.as_graph)
-        .merge(shoe.as_graph)
+        .merge(deck.as_graph)
     }
   end
 end

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'colorize'
-
 module Cards
   class Suit
     attr_reader :key
@@ -14,8 +12,7 @@ module Cards
       SUITS[key][:name]
     end
 
-    def glyph(colorize: false)
-      SUITS[key][:glyph].colorize(color: color, background: :white) if colorize
+    def glyph
       SUITS[key][:glyph]
     end
 

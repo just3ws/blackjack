@@ -6,8 +6,6 @@ require_relative 'rank'
 require_relative 'suit'
 require_relative 'glyphs/cards'
 
-require 'colorize'
-
 module Cards
   class Card
     attr_accessor :suit, :rank
@@ -24,7 +22,7 @@ module Cards
     end
 
     def glyph
-      Cards::Glyphs::CARDS[{ rank: rank.key, suit: suit.key }].colorize(color: suit.color, background: :white)
+      Cards::Glyphs::CARDS[{ rank: rank.key, suit: suit.key }]
     end
 
     def upcard!

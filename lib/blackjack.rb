@@ -6,8 +6,8 @@ end
 require 'config/logging'
 
 require 'card'
+require 'pack'
 require 'deck'
-require 'shoe'
 
 require 'hand'
 require 'round'

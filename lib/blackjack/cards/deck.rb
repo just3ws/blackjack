@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Shoe
+class Deck
   attr_accessor :cards
 
   def initialize(cards = [])
@@ -13,7 +13,7 @@ class Shoe
 
   def as_graph
     {
-      shoe: {
+      deck: {
         cards: {
           count: @cards.count
         }

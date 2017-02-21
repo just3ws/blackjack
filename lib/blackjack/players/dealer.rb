@@ -19,11 +19,11 @@ class Dealer
   end
 
   def deal_upcard_to(player)
-    player.hand.dealt(game.shoe.draw.upcard!)
+    player.hand.dealt(game.deck.draw.upcard!)
   end
 
   def deal_downcard_to(player)
-    player.hand.dealt(game.shoe.draw)
+    player.hand.dealt(game.deck.draw)
   end
 
   def take_ownership_of(game:)
@@ -32,7 +32,7 @@ class Dealer
   end
 
   def prepare_for_game
-    game.shoe = Shoe.new(Deck.new.open)
+    game.deck = Deck.new(Pack.open)
   end
 
   def upcard
