@@ -3,8 +3,8 @@
 module Cards
   class Pack
     def open
-      Cards::Suit::NAMES.keys.flat_map do |suit|
-        Cards::Rank::NAMES.keys.map do |rank|
+      Cards::Suit::SUITS.keys.flat_map do |suit|
+        Cards::Rank::RANKS.keys.map do |rank|
           Card.new(rank: rank, suit: suit)
         end
       end
