@@ -3,8 +3,6 @@
 module Blackjack
 end
 
-require 'config/logging'
-
 require 'card'
 require 'pack'
 require 'deck'

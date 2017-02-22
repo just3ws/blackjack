@@ -19,6 +19,14 @@ module States
       @decision_state = HIT
     end
 
+    def hit?
+      @decision_state.equal?(HIT)
+    end
+
+    def stand?
+      @decision_state.equal?(STAND)
+    end
+
     def stand!
       done!
 
