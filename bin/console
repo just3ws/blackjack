@@ -3,3 +3,6 @@
 
 require 'bundler/setup'
 require 'blackjack'
+
+require 'pry'
+Pry.start
