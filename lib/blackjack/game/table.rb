@@ -1,18 +1,17 @@
 # frozen_string_literal: true
 
 class Table
-  attr_accessor :boxes, :dealer, :deck
+  attr_reader :dealer, :players
 
   def initialize(dealer: nil)
     @dealer = dealer
-    @deck = Deck.new
-    @boxes = []
+    @players = []
   end
 
   def run
     raise 'Game is not ready to start' unless ready?
 
-    @dealer.prepare_for_game
+    dealer.prepare_for_game
 
     Round.new(game: self).run
   end
@@ -20,7 +19,7 @@ class Table
   def accept(player:)
     raise 'No dealer to accept player' unless dealer?
 
-    @boxes << player
+    players << player
   end
 
   def ready?
@@ -28,20 +27,18 @@ class Table
   end
 
   def dealer?
-    @dealer.instance_of?(Dealer)
+    dealer.instance_of?(Dealer)
   end
 
   def players?
-    @boxes.any? && @boxes.all? { |box| box.is_a?(Player) }
+    players.any? && players.all? { |player| player.is_a?(Player) }
   end
 
   def as_graph
     {
       table: {
-        boxes: boxes.map(&:as_graph)
-      }
-        .merge(dealer.as_graph)
-        .merge(deck.as_graph)
+        boxes: players.map(&:as_graph)
+      }.merge(dealer.as_graph)
     }
   end
 end
