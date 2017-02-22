@@ -7,7 +7,7 @@ RSpec.describe Round do
   let(:player_two) { VirtualPlayer.new }
   let(:player_three) { VirtualPlayer.new }
 
-  describe '#run' do
+  describe '#play' do
     context 'ready to start' do
       before do
         dealer.take_ownership_of(game: table)
@@ -17,9 +17,9 @@ RSpec.describe Round do
       end
 
       it 'should be ready' do
-        table.run
+        table.play
 
-        # expect { table.run }
+        # expect { table.play }
         # .to change { table.dealer.active? }.from(false).to(true)
       end
     end
@@ -28,7 +28,7 @@ RSpec.describe Round do
       it 'complains that the game is not ready' do
         error_message = 'Game is not ready to start'
 
-        expect { table.run }
+        expect { table.play }
           .to raise_error(error_message)
       end
     end

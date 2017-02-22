@@ -8,7 +8,7 @@ class Table
     @players = []
   end
 
-  def run
+  def play
     raise 'Game is not ready to start' unless ready?
 
     dealer.prepare_for_game
