@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 module Blackjack
-  module UI
+  module Graphics
     module Glyphs
       CARDS = {
         { rank: :ace, suit: :clubs } => '🂡',
