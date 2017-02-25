@@ -3,6 +3,28 @@
 
 module Blackjack
   module Cards
+    module Suits
+      module Spades
+        attr_reader :color
+        @color = :black
+      end
+
+      module Clubs
+        attr_reader :color
+        @color = :black
+      end
+
+      module Hearts
+        attr_reader :color
+        @color = :red
+      end
+
+      module Diamonds
+        attr_reader :color
+        @color = :red
+      end
+    end
+
     SUITS = {
       spades: {
         name: 'Spades',

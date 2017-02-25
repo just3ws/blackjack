@@ -25,7 +25,6 @@ module Blackjack
         {
           suit: {
             name: name,
-            name: name,
             glyph: glyph
           }
         }
