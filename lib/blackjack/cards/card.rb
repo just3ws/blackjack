@@ -2,7 +2,6 @@
 
 require_relative 'rank'
 require_relative 'suit'
-require_relative 'glyphs'
 
 module Blackjack
   module Cards
@@ -10,8 +9,17 @@ module Blackjack
       attr_accessor :suit, :rank
 
       def initialize(rank:, suit:, downcard: true)
-        @rank = Cards::Rank.new(key: rank)
-        @suit = Cards::Suit.new(key: suit)
+        @rank = if rank.instance_of?(Blackjack::Cards::Rank)
+                  rank
+                else
+                  Blackjack::Cards::Rank.new(rank: rank)
+                end
+
+        @suit = if suit.instance_of?(Blackjack::Cards::Suit)
+                  suit
+                else
+                  Blackjack::Cards::Suit.new(name: suit)
+                end
 
         @downcard = downcard
       end

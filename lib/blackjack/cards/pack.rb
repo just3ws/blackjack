@@ -8,9 +8,9 @@ module Blackjack
   module Cards
     module Pack
       def self.open
-        SUITS.keys.flat_map do |suit|
-          RANKS.keys.map do |rank|
-            Card.new(rank: rank, suit: suit)
+        Blackjack::Cards::SUITS.keys.flat_map do |suit|
+          Blackjack::Cards::RANKS.keys.map do |rank|
+            Blackjack::Cards::Card.new(rank: rank, suit: suit)
           end
         end
       end

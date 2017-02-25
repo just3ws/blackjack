@@ -3,28 +3,28 @@
 module Blackjack
   module Cards
     class Suit
-      attr_reader :key
+      attr_reader :name
 
-      def initialize(key:)
-        @key = key.downcase.to_sym
+      def initialize(name:)
+        @name = name.downcase.to_sym
       end
 
       def name
-        SUITS[key][:name]
+        SUITS[name][:name]
       end
 
       def glyph
-        SUITS[key][:glyph]
+        SUITS[name][:glyph]
       end
 
       def color
-        SUITS[key][:color]
+        SUITS[name][:color]
       end
 
       def as_graph
         {
           suit: {
-            key: key,
+            name: name,
             name: name,
             glyph: glyph
           }

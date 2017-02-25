@@ -3,7 +3,7 @@
 module Blackjack
 end
 
-require 'blackjack/cards/pack'
+# require 'blackjack/cards/pack'
 
 # require 'card'
 # require 'pack'
