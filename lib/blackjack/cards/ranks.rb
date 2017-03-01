@@ -5,57 +5,56 @@ module Blackjack
     RANKS = {
       ace: {
         name: 'Ace',
-        token: 'AC'
+        token: :AC
       },
       two: {
         name: 'Two',
-        token: '02'
+        token: :'02'
       },
       three: {
         name: 'Three',
-        token: '03'
+        token: :'03'
       },
       four: {
         name: 'Four',
-        token: '04'
+        token: :'04'
       },
       five: {
         name: 'Five',
-        token: '05'
+        token: :'05'
       },
       six: {
         name: 'Six',
-        token: '06'
+        token: :'06'
       },
       seven: {
         name: 'Seven',
-        token: '07'
+        token: :'07'
       },
       eight: {
         name: 'Eight',
-        token: '08'
+        token: :'08'
       },
       nine: {
         name: 'Nine',
-        token: '09'
+        token: :'09'
       },
       ten: {
         name: 'Ten',
-        token: '10'
+        token: :'10'
       },
       jack: {
         name: 'Jack',
-        token: '10'
+        token: :'10'
       },
       queen: {
         name: 'Queen',
-        token: '10'
+        token: :'10'
       },
       king: {
         name: 'King',
-        token: '10'
+        token: :'10'
       }
-
     }.freeze
   end
 end

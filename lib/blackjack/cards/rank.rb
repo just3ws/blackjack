@@ -3,6 +3,8 @@
 module Blackjack
   module Cards
     class Rank
+      attr_reader :rank
+
       def initialize(rank:)
         @rank = rank.downcase.to_sym
       end
@@ -12,7 +14,7 @@ module Blackjack
       end
 
       def token
-        RANKS[@name][:token]
+        RANKS[@rank][:token]
       end
 
       def as_graph
