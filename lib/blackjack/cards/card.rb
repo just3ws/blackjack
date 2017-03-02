@@ -15,11 +15,7 @@ module Blackjack
                   Blackjack::Cards::Rank.new(rank: rank)
                 end
 
-        @suit = if suit.instance_of?(Blackjack::Cards::Suit)
-                  suit
-                else
-                  Blackjack::Cards::Suit.new(name: suit)
-                end
+        @suit = Blackjack::Cards::Suits::Spades
 
         @downcard = downcard
       end

@@ -38,10 +38,10 @@ module Blackjack
           10 + hard_count
         end
 
-        def pair?
-          return false unless cards.count == 2
-          cards.flat_map { |card| card.rank.token }.uniq.one?
-        end
+        # def pair?
+        #   return false unless cards.count == 2
+        #   cards.flat_map { |card| card.rank.token }.uniq.one?
+        # end
 
         def bust?
           hard_count > 21

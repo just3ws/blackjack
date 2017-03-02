@@ -11,65 +11,97 @@ module Blackjack
           expect(subject.cards).to be_empty
         end
 
-        describe '#pair?' do
-          it 'two aces' do
-            subject.cards << Blackjack::Cards::Card.new(rank: :ace, suit: :spades)
-            subject.cards << Blackjack::Cards::Card.new(rank: :ace, suit: :hearts)
+        # describe '#pair?' do
+        #   it 'two aces' do
+        #     subject.cards << Blackjack::Cards::Card.new(rank: :ace, suit: :spades)
+        #     subject.cards << Blackjack::Cards::Card.new(rank: :ace, suit: :hearts)
 
-            expect(subject).to be_pair
+        #     expect(subject).to be_pair
+        #   end
+        #   #
+        #   #     xit 'a facecard and a ten are actually pairs' do
+        #   #       subject.cards << Card.new(name: :king, rank: 10)
+        #   #       subject.cards << Card.new(name: :ten, rank: 10)
+        #   #
+        #   #       expect(subject).to be_pair
+        #   #     end
+        #   #
+        #   #     xit 'three cards are not a pair though' do
+        #   #       subject.cards << Card.new(name: :ace, rank: [1, 11])
+        #   #       subject.cards << Card.new(name: :king, rank: 10)
+        #   #       subject.cards << Card.new(name: :four, rank: 4)
+        #   #
+        #   #       expect(subject).to_not be_pair
+        #   #     end
+        #   #
+        #   #     xit 'two different cards are not a pair' do
+        #   #       subject.cards << Card.new(name: :king, rank: 10)
+        #   #       subject.cards << Card.new(name: :four, rank: 4)
+        #   #
+        #   #       expect(subject).to_not be_pair
+        #   #     end
+        # end
+
+        def ace_card; end
+
+        let(:death_card) { Blackjack::Cards::Card.new(rank: :ace, suit: :spades) }
+        let(:pigs_eye) { Blackjack::Cards::Card.new(rank: :ace, suit: :diamonds) }
+        let(:the_crispin) { Blackjack::Cards::Card.new(rank: :ace, suit: :hearts) }
+        let(:clover) { Blackjack::Cards::Card.new(rank: :ace, suit: :clubs) }
+
+        let(:the_curse_of_mexico) { Blackjack::Cards::Card.new(rank: :two, suit: :spades) }
+
+        let(:the_devils_bedpost) { Blackjack::Cards::Card.new(rank: :four, suit: :clubs) }
+
+        let(:loyalty_at_the_risk_of_death) { Blackjack::Cards::Card.new(rank: :six, suit: :hearts) }
+
+        let(:beer_card) { Blackjack::Cards::Card.new(rank: :seven, suit: :diamonds) }
+
+        let(:scourge_of_scotland) { Blackjack::Cards::Card.new(rank: :nine, suit: :diamonds) }
+
+        let(:big_cassino) { Blackjack::Cards::Card.new(rank: :ten, suit: :diamonds) }
+
+        let(:ogier) { Blackjack::Cards::Card.new(rank: :jack, suit: :spades) }
+        let(:laughing_boy) { Blackjack::Cards::Card.new(rank: :jack, suit: :diamonds) }
+        let(:la_hire) { Blackjack::Cards::Card.new(rank: :jack, suit: :hearts) }
+        let(:lancelot) { Blackjack::Cards::Card.new(rank: :jack, suit: :clubs) }
+
+        let(:argine) { Blackjack::Cards::Card.new(rank: :queen, suit: :clubs) }
+        let(:calamity_jane) { Blackjack::Cards::Card.new(rank: :queen, suit: :spades) }
+        let(:helen_of_troy) { Blackjack::Cards::Card.new(rank: :queen, suit: :hearts) }
+
+        let(:alexander) { Blackjack::Cards::Card.new(rank: :king, suit: :clubs) }
+        let(:david) { Blackjack::Cards::Card.new(rank: :king, suit: :spades) }
+        let(:suicide_king) { Blackjack::Cards::Card.new(rank: :king, suit: :hearts) }
+        let(:the_man_with_the_axe) { Blackjack::Cards::Card.new(rank: :king, suit: :diamonds) }
+
+        describe '#hard?' do
+          it 'thirteen total forces ace to hard' do
+            subject.cards << death_card
+            subject.cards << pigs_eye
+
+            expect(subject).to be_hard
+            expect(subject).to_not be_soft
           end
           #
-          #     xit 'a facecard and a ten are actually pairs' do
-          #       subject.cards << Card.new(name: :king, rank: 10)
+          #     xit 'fifteen total forces ace to hard' do
+          #       subject.cards << Card.new(name: :ace, rank: [1, 11])
+          #       subject.cards << Card.new(name: :six, rank: 6)
+          #       subject.cards << Card.new(name: :nine, rank: 9)
+          #
+          #       expect(subject).to be_hard
+          #       expect(subject).to_not be_soft
+          #     end
+          #
+          #     xit 'treats blackjack as soft' do
+          #       subject.cards << Card.new(name: :ace, rank: [1, 11])
           #       subject.cards << Card.new(name: :ten, rank: 10)
           #
-          #       expect(subject).to be_pair
-          #     end
-          #
-          #     xit 'three cards are not a pair though' do
-          #       subject.cards << Card.new(name: :ace, rank: [1, 11])
-          #       subject.cards << Card.new(name: :king, rank: 10)
-          #       subject.cards << Card.new(name: :four, rank: 4)
-          #
-          #       expect(subject).to_not be_pair
-          #     end
-          #
-          #     xit 'two different cards are not a pair' do
-          #       subject.cards << Card.new(name: :king, rank: 10)
-          #       subject.cards << Card.new(name: :four, rank: 4)
-          #
-          #       expect(subject).to_not be_pair
-          #     end
+          #       expect(subject).to be_soft
+          #       expect(subject).to_not be_hard
+          #       expect(subject).to be_blackjack
         end
-        #
-        #   describe '#hard?' do
-        #     xit 'thirteen total forces ace to hard' do
-        #       subject.cards << Card.new(name: :ace, rank: [1, 11])
-        #       subject.cards << Card.new(name: :three, rank: 3)
-        #       subject.cards << Card.new(name: :ten, rank: 10)
-        #
-        #       expect(subject).to be_hard
-        #       expect(subject).to_not be_soft
-        #     end
-        #
-        #     xit 'fifteen total forces ace to hard' do
-        #       subject.cards << Card.new(name: :ace, rank: [1, 11])
-        #       subject.cards << Card.new(name: :six, rank: 6)
-        #       subject.cards << Card.new(name: :nine, rank: 9)
-        #
-        #       expect(subject).to be_hard
-        #       expect(subject).to_not be_soft
-        #     end
-        #
-        #     xit 'treats blackjack as soft' do
-        #       subject.cards << Card.new(name: :ace, rank: [1, 11])
-        #       subject.cards << Card.new(name: :ten, rank: 10)
-        #
-        #       expect(subject).to be_soft
-        #       expect(subject).to_not be_hard
-        #       expect(subject).to be_blackjack
-        #     end
-        #
+
         #     xit 'ten with four aces has forces all aces hard' do
         #       subject.cards << Card.new(name: :ace, rank: [1, 11])
         #       subject.cards << Card.new(name: :ace, rank: [1, 11])
