@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative 'rank'
-require_relative 'suit'
+require_relative 'ranks'
+require_relative 'suits'
 
 module Blackjack
   module Cards

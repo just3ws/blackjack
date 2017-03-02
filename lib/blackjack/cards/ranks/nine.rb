@@ -5,10 +5,11 @@ require_relative 'rank'
 module Blackjack
   module Cards
     module Ranks
-      module Four
+      module Nine
         include Rank
-        @name = 'Four'
-        @token = :'04'
+
+        @name = 'Nine'
+        @token = :'09'
       end
     end
   end
