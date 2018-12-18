@@ -4,21 +4,16 @@ source 'https://rubygems.org'
 
 gemspec
 
-group :development do
+group :development, :test do
+  gem 'byebug'
+  gem 'pry-byebug'
+
   gem 'fuubar', require: false
 
   gem 'guard-rspec', require: false
 
   gem 'rubocop', require: false
   gem 'ruby-lint', require: false
-end
-
-group :development, :test do
-  gem 'byebug'
-  gem 'pry'
-  gem 'pry-byebug'
-
-  gem 'awesome_print'
 end
 
 group :test do

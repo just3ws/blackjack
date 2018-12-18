@@ -1,9 +1,9 @@
 # Blackjack
 
-[![Build Status](https://travis-ci.org/just3ws/blackjack.svg?branch=master)](https://travis-ci.org/just3ws/blackjack)
-[![Code Climate](https://lima.codeclimate.com/github/just3ws/blackjack/badges/gpa.svg)](https://lima.codeclimate.com/github/just3ws/blackjack)
-[![Test Coverage](https://lima.codeclimate.com/github/just3ws/blackjack/badges/coverage.svg)](https://lima.codeclimate.com/github/just3ws/blackjack/coverage)
-[![Issue Count](https://lima.codeclimate.com/github/just3ws/blackjack/badges/issue_count.svg)](https://lima.codeclimate.com/github/just3ws/blackjack)
+[![Build Status](https://travis-ci.org/just3ws/developer-exercise.svg?branch=blackjack)](https://travis-ci.org/just3ws/developer-exercise)
+[![Code Climate](https://lima.codeclimate.com/github/just3ws/developer-exercise/badges/gpa.svg)](https://lima.codeclimate.com/github/just3ws/developer-exercise)
+[![Test Coverage](https://lima.codeclimate.com/github/just3ws/developer-exercise/badges/coverage.svg)](https://lima.codeclimate.com/github/just3ws/developer-exercise/coverage)
+[![Issue Count](https://lima.codeclimate.com/github/just3ws/developer-exercise/badges/issue_count.svg)](https://lima.codeclimate.com/github/just3ws/developer-exercise)
 
 Simplistic Blackjack simulator
 
