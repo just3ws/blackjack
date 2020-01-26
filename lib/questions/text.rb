@@ -3,7 +3,7 @@
 module Questions
   module Text
     def clean(str)
-      trim(str.to_s).downcase
+      trim(str.to_s.gsub(/\s+/, ' ')).downcase
     end
 
     def trim(str)
