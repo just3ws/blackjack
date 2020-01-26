@@ -15,6 +15,8 @@ group :development, :test do
 
   gem 'rubocop', require: false
   gem 'ruby-lint', require: false
+
+  gem 'coveralls', require: false
 end
 
 
