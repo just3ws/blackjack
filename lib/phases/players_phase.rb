@@ -15,7 +15,7 @@ module Phases
       deal_an_upcard_to_the_dealer
       deal_an_upcard_to_each_player
 
-      Blackjack.logger.info("Dealer upcard is #{game.dealer.upcard.for_humans}")
+      Blackjack.logger.info("Dealer upcard is #{game.dealer.upcard.for_humans}\n")
 
       game.boxes.each_with_index do |player, i|
         i += 1
@@ -55,7 +55,7 @@ module Phases
           break
         end
 
-        Blackjack.logger.info("End of turn for #{player.name}")
+        Blackjack.logger.info("End of turn for #{player.name}\n")
       end
     end
 

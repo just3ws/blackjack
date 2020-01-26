@@ -3,11 +3,17 @@
 module Phases
   class ResolutionPhase
     attr_accessor :game
+    attr_reader :board
+
+    WON = 'won'
+    LOST = 'lost'
+    TIED = 'tied'
+    UNKNOWN = 'Unknown final play state'
 
     def initialize(game:)
       @game = game
       @board = {
-        dealer: @game.dealer,
+        dealer: game.dealer,
         won: [],
         lost: [],
         unknown: [],
@@ -15,15 +21,23 @@ module Phases
       }
     end
 
+    def dealer_bust?
+      game.dealer.hand.bust?
+    end
+
+    def dealer_blackjack?
+      game.dealer.hand.blackjack?
+    end
+
     def run
       Blackjack.logger.info { '*' * 80 }
 
-      if game.dealer.hand.bust?
+      if dealer_bust?
         Blackjack.logger.debug("Dealer BUST holding #{game.dealer.hand.description}")
 
         # If player hasn't already won then convert to win by dealer bust
         game.boxes.select(&:unknown?).each(&:dealer_bust!)
-      elsif game.dealer.hand.blackjack?
+      elsif dealer_blackjack?
         Blackjack.logger.debug("Dealer BLACKJACK holding #{game.dealer.hand.description}")
 
         # NOTE: "Blackjack" is an exactly 2 card twenty-one and beats a >2 twenty-one.
@@ -58,14 +72,15 @@ module Phases
         i += 1
 
         final = if player.won?
-                  'won'
+                  WON
                 elsif player.lost?
-                  'lost'
+                  LOST
                 elsif player.tie?
-                  'tied'
+                  TIED
                 else
-                  raise 'Unknown final play state'
+                  raise UNKNOWN
                 end
+
         Blackjack.logger.debug("#{player.name} #{final} by #{player.play_state.to_s.sub(/_/, ' ')} with #{player.hand.description}")
       end
 

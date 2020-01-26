@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'awesome_print'
-require 'pry'
-
 module Questions
   RSpec.describe WhatIsYourNameQuestion do
     subject(:question) { described_class.new }

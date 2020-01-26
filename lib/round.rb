@@ -8,12 +8,12 @@ class Round
   end
 
   def run
-    Blackjack.logger.info { "Beginning game with #{game.boxes.count} player(s)" }
+    Blackjack.logger.info { "\nBeginning game with #{game.boxes.count} player(s)\n" }
 
     Phases::PlayersPhase.new(game: game).run
     Phases::DealersPhase.new(game: game).run
     Phases::ResolutionPhase.new(game: game).run
 
-    Blackjack.logger.info { "End of game with #{game.boxes.count} player(s)" }
+    Blackjack.logger.info { "\nEnd of game with #{game.boxes.count} player(s)\n" }
   end
 end

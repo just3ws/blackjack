@@ -49,7 +49,7 @@ module Phases
         break
       end
 
-      Blackjack.logger.info('End of turn for Dealer')
+      Blackjack.logger.info("End of turn for Dealer\n")
     end
 
     def deal_an_upcard_to_the_dealer
