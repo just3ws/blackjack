@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-lib = File.expand_path('../lib', __FILE__)
+
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 module Blackjack
@@ -10,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'blackjack'
   spec.version       = Blackjack::VERSION
   spec.authors       = ['Mike Hall']
-  spec.email         = %w(mike@just3ws.com)
+  spec.email         = %w[mike@just3ws.com]
 
   spec.summary       = 'Simulates a basic game of Blackjack'
   spec.description   = 'Rudimentary implemenation of a Blackjack simulator'
@@ -32,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.executables = 'blackjack'
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.14'
-  spec.add_development_dependency 'rspec', '~> 3.5.0'
+  # spec.add_development_dependency 'bundler', '~> 1.14'
   spec.add_development_dependency 'pry', '~> 0.10.4'
+  spec.add_development_dependency 'rspec', '~> 3.5.0'
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Blackjack
-  NAMES = %w(
+  NAMES = %w[
     Al\ Francesco Bender\ Bending\ Rodriguez,\ Sr. Don\ Johnson
     Edward\ Oakley\ Thorp Herbert\ Maisel James\ Grosjean
     James\ McDermott Jeff\ Bernstein Johnny\ Chang
@@ -10,5 +10,5 @@ module Blackjack
     Mitch\ Hedberg Peter\ Griffin Ray\ Charles
     Roger\ Baldwin Stanford\ Wong Tommy\ Hyland
     Will\ Cantley William\ Poundstone
-  ).freeze
+  ].freeze
 end

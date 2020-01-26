@@ -8,7 +8,7 @@ AllCops:
   ExtraDetails: true
   # Cache the analysis results
   UseCache: true
-  CacheRootDirectory: /tmp
+  CacheRootDirectory: ./tmp
   MaxFilesInCache: 2048
   Exclude:
     - 'vendor/**/*'
@@ -40,7 +40,7 @@ Metrics/AbcSize:
 Metrics/MethodLength:
   Enabled: true
 
-Style/Encoding:
-  EnforcedStyle: when_needed
-  Enabled: true
+# Style/Encoding:
+#   EnforcedStyle: when_needed
+#   Enabled: true
 

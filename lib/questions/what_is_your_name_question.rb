@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Questions
   class WhatIsYourNameQuestion
     attr_reader :answer
@@ -31,6 +32,7 @@ module Questions
 
     def did_not_understand_message
       return "Sorry. I don't understand." if @normalized_response.empty?
+
       "Sorry. I don't understand what you mean by \"#{trim(@what_they_said)}\"."
     end
 

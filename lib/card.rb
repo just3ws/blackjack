@@ -26,6 +26,7 @@ class Card
 
   def as_token
     return 'AC' if name == :ace
+
     rank.to_s.rjust(2, '0')
   end
 

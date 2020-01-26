@@ -1,20 +1,19 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 class Deck
-  SUITS = %i(
+  SUITS = %i[
     hearts
     diamonds
     spades
     clubs
-  ).freeze
+  ].freeze
 
-  SUIT_FONTS = %i(
+  SUIT_FONTS = %i[
     hearts: ♥,
     diamonds: ♦,
     spades: ♠,
     clubs: ♣
-  ).freeze
+  ].freeze
 
   NAME_RANKS = {
     two: 2,

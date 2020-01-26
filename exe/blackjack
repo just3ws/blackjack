@@ -6,7 +6,6 @@ Signal.trap('SIGINT') { exit }
 Signal.trap('TERM') { exit }
 
 begin
-
   require 'bundler/setup'
 
   require 'blackjack'
@@ -24,9 +23,6 @@ begin
     HumanPlayer.new(name: name).enter(game: table)
     VirtualPlayer.new.enter(game: table)
   end.run
-
 ensure
-
   puts "\n\e[33m#{Blackjack::QUOTES.sample}\e[0m"
-
 end

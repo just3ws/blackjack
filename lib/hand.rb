@@ -28,6 +28,7 @@ class Hand
 
   def point_total
     return hard_count if hard?
+
     # Treat Ace as 11 if possible.
     # Short hand for `(hard_count - 1) + 11`
     10 + hard_count
@@ -35,6 +36,7 @@ class Hand
 
   def pair?
     return false unless cards.count == 2
+
     cards.map(&:rank).uniq.one?
   end
 
@@ -53,6 +55,7 @@ class Hand
   def type
     return 'Hard' if hard?
     return 'Soft' if soft?
+
     ''
   end
 
