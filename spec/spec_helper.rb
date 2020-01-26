@@ -3,6 +3,9 @@
 require 'simplecov'
 SimpleCov.start
 
+require 'coveralls'
+Coveralls.wear!
+
 ENV['BLACKJACK_ENV'] ||= 'test'
 
 require 'blackjack'
