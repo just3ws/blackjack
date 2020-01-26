@@ -16,6 +16,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'ruby-lint', require: false
 
+  gem 'rest-client', '>= 1.8.0'
   gem 'coveralls', require: false
 end
 
