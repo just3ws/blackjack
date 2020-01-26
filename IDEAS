@@ -1,0 +1,13 @@
+# Ideas
+
+- Add command "look" to print out the current state of all players. Display upcard list and total count of cards.
+- Render the cards in unicode. https://en.wikipedia.org/wiki/Playing_cards_in_Unicode
+- Render the suits in unicode. ♠, ♥, ♦, ♣, ♤, ♡, ♢, ♧
+- Bet: bet is placed before first card is dealt/before game begins. Blackjack typically pays out 3:2 or 6:5. Blackjack pays 2:1
+- Splitting: maximum is 4 times https://www.gambling.com/ca/online-casinos/strategy/blackjack-strategy-splitting-and-doubling-down-explained-28800
+- Double Down https://www.gambling.com/ca/online-casinos/strategy/blackjack-strategy-splitting-and-doubling-down-explained-28800
+- Insurance. When the dealer is showing an Ace and before they show their hole. Payoff 2:1
+  card, a side-bet called insurance becomes available.
+- Add command "advise" to make a suggestion on what action to take.
+- Add command "book" to print the rules
+- Add command "surrender" https://www.casinotop10.net/blackjack-surrender
