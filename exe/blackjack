@@ -19,9 +19,11 @@ begin
   Table.new.tap do |table|
     Dealer.new.take_ownership_of(game: table)
 
-    VirtualPlayer.new.enter(game: table)
     HumanPlayer.new(name: name).enter(game: table)
-    VirtualPlayer.new.enter(game: table)
+
+    rand(0..5).times do
+      VirtualPlayer.new.enter(game: table)
+    end
   end.run
 ensure
   puts "\n\e[33m#{Blackjack::QUOTES.sample}\e[0m"
