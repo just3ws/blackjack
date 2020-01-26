@@ -17,6 +17,7 @@ group :development, :test do
   gem 'ruby-lint', require: false
 end
 
+
 group :test do
   gem 'simplecov', require: false
 end
